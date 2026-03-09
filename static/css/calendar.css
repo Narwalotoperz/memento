@@ -1,0 +1,90 @@
+body{
+    background:#e9ecef;
+}
+
+/* główny kontener */
+.calendar-wrapper{
+    background:white;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* zielony panel z datą */
+.calendar-side{
+    background:#40c172;
+    color:white;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    padding:40px;
+}
+
+.calendar-side h1{
+    font-size:120px;
+    font-weight:300;
+    margin:0;
+}
+
+.calendar-side h4{
+    margin-top:10px;
+    letter-spacing:2px;
+}
+
+/* kalendarz */
+#calendar{
+    padding:20px;
+}
+
+/* nagłówki dni tygodnia */
+.fc-col-header-cell{
+    background:#f8f9fa;
+    font-weight:600;
+}
+
+/* dni */
+.fc-daygrid-day-number{
+    font-size:16px;
+    padding:8px;
+}
+
+/* hover */
+.fc-daygrid-day:hover{
+    background:#f1f3f5;
+}
+
+/* zaznaczony dzień */
+.fc-day-today{
+    background:transparent !important;
+}
+
+.fc-daygrid-day.fc-day-today .fc-daygrid-day-number{
+    background:#40c172;
+    color:white;
+    border-radius:50%;
+    width:35px;
+    height:35px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+/* wydarzenia */
+.fc-event{
+    border:none;
+    background:#2f3e57;
+    padding:3px 6px;
+    border-radius:4px;
+}
+
+/* panel notatek */
+.notes-panel{
+    background:white;
+    padding:20px;
+    border-left:1px solid #eee;
+}
+
+.notes-panel textarea{
+    resize:none;
+}

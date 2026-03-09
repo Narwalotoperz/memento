@@ -1,9 +1,10 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, jsonify
 import os
 
 # use templates folder one level up (project-level)
-app = Flask(__name__, template_folder=os.path.join(os.path.dirname(__file__), "..", "templates"))
-
+app = Flask(__name__, 
+            template_folder=os.path.join(os.path.dirname(__file__), "..", "templates"),
+            static_folder=os.path.join(os.path.dirname(__file__), "..", "static"))
 @app.route("/")
 def home():
     return render_template("base.html")
@@ -12,13 +13,26 @@ def home():
 def form():
     return render_template("form.html")
 
-@app.route("/calender_month")
-def calender_month_view():
+notes = {}
+
+@app.route("/calendar")
+def calendar():
     return render_template("month_view.html")
 
-@app.route("/notes_and_tasks")
-def notes_and_tasks_view():
-    return render_template("notes_and_tasks.html")
+
+@app.route("/save_note", methods=["POST"])
+def save_note():
+    data = request.json
+    notes[data["date"]] = data["note"]
+    return {"status": "ok"}
+
+
+@app.route("/get_note")
+def get_note():
+    date = request.args.get("date")
+    return jsonify({
+        "note": notes.get(date, "")
+    })
 
 @app.route("/unlock")
 def unlock():
