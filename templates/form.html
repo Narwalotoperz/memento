@@ -4,57 +4,23 @@
 <h2>User Information</h2>
 
 <form method="POST" action="/submit-profile">
+  {{ userForm.hidden_tag() }}
 
-  <!-- Gender -->
-  <div class="mb-3">
-    <label class="form-label">Gender</label>
-    <select class="form-select select2" name="gender" required>
-      <option value="" selected disabled>Select gender</option>
-      <option value="male">Male</option>
-      <option value="female">Female</option>
-    </select>
-  </div>
+  {{ userForm.name.label }}
+  {{ userForm.name(class="form-control") }}
 
-  <!-- Age -->
-  <div class="mb-3">
-    <label class="form-label">Age</label>
-    <input type="number"
-           class="form-control"
-           name="age"
-           min="0"
-           max="120"
-           required>
-  </div>
+  {{ userForm.gender.label }}
+  {{ userForm.gender(class="form-select") }}
 
-  <!-- Social Class -->
-  <div class="mb-3">
-    <label class="form-label">Social Class</label>
-    <select class="form-select select2" name="social_class" required>
-      <option value="" selected disabled>Select social class</option>
-      <option value="working_class">Working Class</option>
-      <option value="middle_class">Middle Class</option>
-      <option value="upper_class">Upper Class</option>
-    </select>
-  </div>
+  {{ userForm.age.label }}
+  {{ userForm.age(class="form-control") }}
 
-  <!-- Country -->
-  <div class="mb-3">
-    <label class="form-label">Country of Residence</label>
-    <select class="form-select select2" name="country" required>
-      <option value="" selected disabled>Select country</option>
-      <option value="poland">Poland</option>
-      <option value="germany">Germany</option>
-      <option value="united_kingdom">United Kingdom</option>
-      <option value="united_states">United States</option>
-      <option value="france">France</option>
-      <option value="spain">Spain</option>
-      <option value="italy">Italy</option>
-      <option value="canada">Canada</option>
-      <option value="australia">Australia</option>
-    </select>
-  </div>
+  {{ userForm.social_class.label }}
+  {{ userForm.social_class(class="form-select") }}
 
-  <button type="submit" class="btn btn-primary">Submit</button>
+  {{ userForm.country.label }}
+  {{ userForm.country(class="form-select") }}
 
+  <button type="submit">Submit</button>
 </form>
 {% endblock %}
